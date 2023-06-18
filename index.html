@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
+            https://cordova.apache.org/docs/en/latest/
+        Some notes:
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <link rel="stylesheet" href="css/index.css">
+    <title>Counter</title>
+</head>
+<body class="app"> 
+    <div class="panel-dim"></div>
+    <div class="app__header flex">
+        <h1>Items</h1>
+        <button class="btn btn-add" data-target-panel="#panel-add"></button>
+    </div>
+    <div class="app__main flex">
+        <div class="no-item">
+            <div class="no-item__msg">
+                Empty Item List
+            </div>
+        </div>
+    </div>
+    <div class="app__drawer" id="app-drawer">
+        <div class="drawer__header flex">
+            <div class="drawer__handle" data-target-drawer="#app-drawer"></div>
+            <h2>Order</h2>
+        </div>
+        <div class="drawer__main flex">
+            <div class="no-item">
+                <div class="no-item__msg">
+                    No Item Selected
+                </div>
+            </div>
+        </div>
+        <div class="drawer__footer flex">
+            <div class="drawer__info flex align-center gap-1">
+                <h2>Total ₱</h2>
+                <div class="info__total">0</div>
+            </div>
+            <div class="drawer__actions flex gap-1">
+                <button class="btn btn-red btn-clear" disabled>Clear</button>
+                <button class="btn btn-green btn-done" disabled data-target-panel="#panel-summary">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-add invisible" id="panel-add">
+        <h2 class="panel__header">Add New Item</h2>
+        <div class="panel__body flex gap-1">
+            <div class="input flex">
+                <label class="input__label" for="item-name">Name</label>
+                <input type="text" id="item-name" placeholder="Item">
+            </div>
+            <div class="input flex">
+                <label class="input__label" for="item-price">Price</label>
+                <input type="number" id="item-price" placeholder="0.00">
+            </div>
+        </div>
+        <div class="panel__actions flex gap-1">
+            <button class="btn btn-red btn-cancel btn-close-panel">Cancel</button>
+            <button class="btn btn-green btn-add" disabled>Add</button>
+        </div>
+    </div>
+    <div class="panel panel-summary invisible" id="panel-summary">
+        <h2 class="panel__header">Order Summary</h2>
+        <div class="panel__body flex gap-1">
+            <div class="input flex">
+                <label class="input__label" for="order-total">Total</label>
+                <input type="text" id="order-total" disabled>
+            </div>
+            <div class="input flex">
+                <label class="input__label" for="amount">Amount</label>
+                <input type="number" id="amount" placeholder="0.00">
+            </div>
+            <div class="input flex">
+                <label class="input__label" for="chage">Change</label>
+                <input type="text" id="change" placeholder="0.00" disabled>
+            </div>
+        </div>
+        <div class="panel__actions flex gap-1">
+            <button class="btn btn-red btn-close-panel">Close</button>
+            <button class="btn btn-green btn-finish" disabled>Finish</button>
+        </div>
+    </div>
+    
+        <script src="js/index.js"></script>
+    </body>
+</html>

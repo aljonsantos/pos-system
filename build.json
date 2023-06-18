@@ -1,0 +1,18 @@
+{
+    "android": {
+        "debug": {
+            "keystore": "android.keystore",
+            "storePassword": "cssefinal",
+            "alias": "counter",
+            "password" : "cssefinal",
+            "keystoreType": ""
+        },
+        "release": {
+            "keystore": "android.keystore",
+            "storePassword": "cssefinal",
+            "alias": "counter",
+            "password" : "cssefinal",
+            "keystoreType": ""
+        }
+    }
+}
